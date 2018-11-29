@@ -3,17 +3,17 @@ function arrayNormalizer(data){
   if(Array.isArray(data)){
     data.forEach((value) =>{
      const {id, ...rest} = value;
-      let newObj={};
+      let innerObj={};
       Object.keys(rest).forEach((val)=>{
         if(Array.isArray(rest[val])){
-           newObj[val]=arrayNormalizer(rest[val]);
+           innerObj[val]=arrayNormalizer(rest[val]);
         }
         else{
-          newObj[val]=rest[val];
+          innerObj[val]=rest[val];
         }
        
       });
-     obj[id]=newObj;
+     obj[id]=innerObj;
       
     })
     return obj;
