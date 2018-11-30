@@ -1,9 +1,9 @@
 function arrayNormalizer(data){
-  let obj={};
+  const obj={};
   if(Array.isArray(data)){
     data.forEach((value) =>{
      const {id, ...rest} = value;
-      let innerObj={};
+      const innerObj={};
       Object.keys(rest).forEach((val)=>{
         if(Array.isArray(rest[val])){
            innerObj[val]=arrayNormalizer(rest[val]);
